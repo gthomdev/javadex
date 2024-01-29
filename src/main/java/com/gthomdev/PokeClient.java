@@ -1,8 +1,9 @@
 package com.gthomdev;
 
+import com.gthomdev.model.Pokemon;
+import com.gthomdev.service.PokemonService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
@@ -13,16 +14,14 @@ public class PokeClient {
     }
 
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
-    @Bean
-    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+    public CommandLineRunner run(PokemonService pokemonService) throws Exception {
         return args -> {
-            String url = "https://pokeapi.co/api/v2/ability/1/";
-            String response = restTemplate.getForObject(url, String.class);
-            System.out.println(response);
+            for (int i = 1; i < 152; i++) {
+                Pokemon pokemon = pokemonService.getPokemonById(Integer.toString(i));
+                StringBuilder sb = new StringBuilder();
+                sb.append("Pokemon ").append(pokemon.name).append(" has ID ").append(pokemon.id);
+                System.out.println(sb);
+            }
         };
     }
 }
