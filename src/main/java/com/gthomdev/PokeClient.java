@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 
 @SpringBootApplication
 public class PokeClient {
@@ -19,20 +20,10 @@ public class PokeClient {
     @Bean
     public CommandLineRunner run(PokemonService pokemonService, PokemonImageService pokemonImageService) throws Exception {
         return args -> {
-
-            BufferedImage bulbasaur = pokemonImageService.getPokemonImageForPokemon("bulbasaur");
-            if (bulbasaur != null) {
-                System.out.println(bulbasaur);
-            }
-            /*
-
             for (int i = 1; i < 152; i++) {
-                Pokemon pokemon = pokemonService.getPokemonById(Integer.toString(i));
-                StringBuilder sb = new StringBuilder();
-                sb.append("Pokemon ").append(pokemon.name).append(" has ID ").append(pokemon.id);
-                System.out.println(sb);
+                BufferedImage pokemon = pokemonImageService.getPokemonImageForPokemon(String.valueOf(i));
+                pokemonImageService.savePokemonImage(pokemon, "C:\\Users\\georg\\Documents\\Pokemon\\" + String.valueOf(i) + ".png");
             }
-        }; */
     };
 }
 }
