@@ -1,16 +1,7 @@
 package com.gthomdev.service;
-import com.gthomdev.model.Pokemon;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImagingOpException;
-import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.nio.Buffer;
 import java.net.URL;
-import org.jsoup.*;
-import org.jsoup.nodes.*;
-import org.jsoup.select.*;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -48,9 +39,7 @@ public class PokemonImageService {
         File outputFile = new File(filePath);
             try {
                 ImageIO.write(pokemonImage, "png", outputFile);
-                System.out.println("Worked");
             } catch (Exception e) {
-                System.out.println("Problem");
                 e.printStackTrace();
             }
         }

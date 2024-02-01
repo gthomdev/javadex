@@ -1,6 +1,5 @@
 package com.gthomdev;
 
-import com.gthomdev.model.Pokemon;
 import com.gthomdev.service.PokemonImageService;
 import com.gthomdev.service.PokemonService;
 import org.springframework.boot.SpringApplication;
@@ -9,12 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 @SpringBootApplication
-public class PokeClient {
+public class PokemonImageScraper {
     public static void main(String[] args) {
-        SpringApplication.run(PokeClient.class, args);
+        SpringApplication.run(PokemonImageScraper.class, args);
     }
 
     @Bean
