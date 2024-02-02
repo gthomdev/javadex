@@ -16,7 +16,7 @@ public class PokemonImageScraper {
     }
 
     @Bean
-    public CommandLineRunner run(PokemonService pokemonService, PokemonImageService pokemonImageService) throws Exception {
+    public CommandLineRunner runImageScraper(PokemonImageService pokemonImageService) throws Exception {
         return args -> {
             for (int i = 1; i < 152; i++) {
                 BufferedImage pokemon = pokemonImageService.getPokemonImageForPokemon(String.valueOf(i));
