@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 
 import java.awt.image.BufferedImage;
 
@@ -16,6 +17,7 @@ public class PokemonImageScraper {
     }
 
     @Bean
+    @Profile("!test")
     public CommandLineRunner runImageScraper(PokemonImageService pokemonImageService) throws Exception {
         return args -> {
             for (int i = 1; i < 152; i++) {
