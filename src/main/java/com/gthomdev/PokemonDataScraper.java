@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Profile;
 
 import java.io.*;
 
@@ -15,6 +17,7 @@ public class PokemonDataScraper {
     }
 
     @Bean
+    @Profile("!test")
     public CommandLineRunner runDataScraper(PokemonService pokemonService) throws Exception {
         return args -> {
             String[] pokemon = new String[151];
