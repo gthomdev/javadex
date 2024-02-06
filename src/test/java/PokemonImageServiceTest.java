@@ -20,4 +20,30 @@ public class PokemonImageServiceTest {
         String resultString = pokemonImageService.getPaddedStringForId(testString);
         assertThat(resultString).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void testGetPaddedStringForIdShouldPadATwoCharacterString(){
+        String testString = "51";
+        String expectedResult = "051";
+        String resultString = pokemonImageService.getPaddedStringForId(testString);
+        assertThat(resultString).isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    public void testGetPaddedStringForIdShouldPadAOneCharacterString(){
+        String testString = "1";
+        String expectedResult = "001";
+        String resultString = pokemonImageService.getPaddedStringForId(testString);
+        assertThat(resultString).isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    public void testGetPaddedStringForIdShouldReturnThreeZeroesForAnEmptyString(){
+        String testString = "";
+        String expectedResult = "000";
+        String resultString = pokemonImageService.getPaddedStringForId(testString);
+        assertThat(resultString).isEqualTo(expectedResult);
+    }
 }
