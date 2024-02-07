@@ -2,6 +2,7 @@ import com.gthomdev.PokemonImageScraper;
 import com.gthomdev.service.PokemonImageService;
 import com.gthomdev.service.PokemonService;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -27,6 +28,12 @@ public class PokemonImageServiceTest {
         String expectedResult = "051";
         String resultString = pokemonImageService.getPaddedStringForId(testString);
         assertThat(resultString).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void testGetPaddedStringForIdShouldThrowExceptionIfInputIsMoreThanThreeCharacters(){
+        String testString = "5111";
+        assertThrows(IllegalArgumentException.class, ()-> pokemonImageService.getPaddedStringForId(testString));
     }
 
 

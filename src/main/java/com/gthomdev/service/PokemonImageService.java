@@ -10,6 +10,9 @@ import java.io.File;
 public class PokemonImageService {
 
     public String getPaddedStringForId(String id) {
+        if (id.length() >= 4) {
+            throw new IllegalArgumentException("Id must be 3 characters or fewer");
+        }
         int paddedChars = 3 - id.length();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < paddedChars; i++) {
