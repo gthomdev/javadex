@@ -36,7 +36,6 @@ public class PokemonImageServiceTest {
         assertThrows(IllegalArgumentException.class, ()-> pokemonImageService.getPaddedStringForId(testString));
     }
 
-
     @Test
     public void testGetPaddedStringForIdShouldPadAOneCharacterString(){
         String testString = "1";
