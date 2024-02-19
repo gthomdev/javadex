@@ -30,6 +30,7 @@ public class PokemonImageServiceTest {
         assertThat(resultString).isEqualTo(expectedResult);
     }
 
+    
     @Test
     public void testGetPaddedStringForIdShouldThrowExceptionIfInputIsMoreThanThreeCharacters(){
         String testString = "5111";
